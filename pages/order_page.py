@@ -52,5 +52,5 @@ class OrderPageSamokat(BasePage):
 
     @allure.step('Кликаем на логотип Самокат на странице заказа')
     def click_logo_samokat(self):
-        self.wait_for_clickable_and_scroll(self.base_loc.samokat_logo)
-        self.click_on_element(self.base_loc.samokat_logo)
+        self.wait_for_clickable_and_scroll(self.loc.samokat_logo)
+        self.click_on_element(self.loc.samokat_logo)

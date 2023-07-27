@@ -21,10 +21,11 @@ class OrderPageLocators:
     button_next_form_order = [By.XPATH, './/button[contains(text(), "Далее")]']
 
     # Поле ввода: Станция метро
-    input_metro_form_order = [By.XPATH, './/div/input[contains(@placeholder, "* Станция метро")]']
+    input_metro_form_order = [By.XPATH, './/div/input[contains(@tabindex, "0")]']
 
     # Элемент в списке Станция метро
-    element_in_metro_list_form_order = [By.XPATH, './/ul[contains(@class, "select-search__options")]/li[@data-index={}]/button']
+    #element_in_metro_list_form_order = [By.XPATH, './/ul[contains(@class, "select-search__options")]/li[@data-index={}]/button']
+    element_in_metro_list_form_order = [By.XPATH,'.//ul/li[@data-index={}]/button']
 
     # Заголовок формы Про аренду
     form_arenda = [By.XPATH, './/div[contains(@class, "Order_Header__BZXOb") and contains(text(), "Про аренду")]']
@@ -56,4 +57,7 @@ class OrderPageLocators:
 
     # Текст Заказ оформлен после успешного создания заказа
     text_order_completed = [By.XPATH, './/div[contains(@class, "Order_ModalHeader__3FDaJ")]']
+
+    # Логотип сервиса Самокат
+    samokat_logo = [By.XPATH, './/a[contains(@class, "Header_LogoScooter__3lsAR")]']
 

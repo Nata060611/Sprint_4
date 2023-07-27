@@ -7,7 +7,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class TestLogos:
 
-    @pytest.mark.allure
     @allure.title('Проверка перехода по логотипу Самокат')
     @allure.description('Нажимаем на логотип Самокат на странице заказа и проверяем, что перешли на главную страницу')
     def test_logo_samokat_order_page(self, my_firefox):
@@ -17,11 +16,9 @@ class TestLogos:
         main_page = MainPageSamokat(my_firefox)
         assert 'Хочу сразу несколько самокатов' in main_page.check_mainpage()
 
-    @pytest.mark.allure
     @allure.title('Проверка перехода по логотипу Яндекс')
     @allure.description('Нажимаем на логотип Яндекс на главной странице и проверяем, что в новой вкладке открылась страница yandex.ru')
     def test_logo_yandex_main_page(self, my_firefox):
-        my_firefox.get('https://qa-scooter.praktikum-services.ru')
         main_page = MainPageSamokat(my_firefox)
         main_page.click_logo_yandex()
         WebDriverWait(my_firefox, 10).until(expected_conditions.number_of_windows_to_be(2))

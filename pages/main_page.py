@@ -18,6 +18,13 @@ class MainPageSamokat(BasePage):
         new_locator = method, locator.format(number)
         return self.driver.find_element(*new_locator).get_attribute('aria-expanded')
 
+    @allure.step('Проверяем текст у элемента аккордиона номер {number}')
+    def check_answer_text_accordion_section(self, number):
+        method, locator = self.loc.questions_accordion_section_answer
+        new_locator = method, locator.format(number) + '/parent::div/parent::div/div[2]/p'
+        return_text = self.driver.find_element(*new_locator).get_attribute("textContent")
+        return return_text
+
     @allure.step('Ждем, когда элемент аккордиона {number} можно кликнуть')
     def wait_for_question_accordion_section_clickable(self, number):
         method, locator = self.loc.questions_accordion_section
@@ -42,5 +49,5 @@ class MainPageSamokat(BasePage):
 
     @allure.step('Кликаем на логотип Яндекс на главной странице')
     def click_logo_yandex(self):
-        self.wait_for_clickable_and_scroll(self.base_loc.yandex_logo)
-        self.click_on_element(self.base_loc.yandex_logo)
+        self.wait_for_clickable_and_scroll(self.loc.yandex_logo)
+        self.click_on_element(self.loc.yandex_logo)
